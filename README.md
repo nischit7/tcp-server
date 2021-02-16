@@ -1,5 +1,16 @@
 Simple TCP Server
 -----------------------------------
+
+It makes use of Vert.x reactive stream to read and write streams of data to the file.
+The good news is Vert.x has provided a read parser which can translate into a neat event stream. It also provides AsyncFile, a nice write stream on top of Vert.x file system.
+
+With these in mind, it provides an ability to read from a TCP socket and write it into a file system. You can take the advantage of all back pressure startegies that already implemented. In addition to reading and writing, you can add validator, message convertor and they can participate in the same event streaming pipe.
+
+One draw back you will see in this code repo is error handling. Errors are thrown at random places.
+Ideally we should have error handler and we should hook you that error handler in places where it is necessary.
+This allows one to have a singular error handling strategy.
+During this exercise I encountered couple of open defects in Vert.x
+
 ##Pre-requisites to build code
 
 1. JDK 11
