@@ -1,5 +1,5 @@
-Simple TCP Server
------------------------------------
+Simple TCP Server using Vert.x reactive stream
+----------------------------------------------
 
 It makes use of Vert.x reactive stream to read and write streams of data to the file.
 The good news is Vert.x has provided a read parser which can translate into a neat event stream. It also provides AsyncFile, a nice write stream on top of Vert.x file system.
