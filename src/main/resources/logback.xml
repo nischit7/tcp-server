@@ -1,0 +1,34 @@
+<configuration scan="true">
+
+	<property name="APP_NAME" value="simple-tcp-server"/>
+
+	<appender name="rolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_DIR}/${APP_NAME}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${logDirectoryBase}/${appName}.log.%d{yyyy-MM-dd}.%i</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>5</maxHistory>
+			<totalSizeCap>50MB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d %p \(%t\) [%c] %X{requestId} - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %p \(%t\) [%c] - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.example" level="info" />
+	<logger name="org.springframework" level="info"/>
+	<logger name="io.netty.resolver.dns.DnsServerAddressStreamProviders" level="error"/>
+
+
+	<root level="info">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="rolling" />
+	</root>
+
+</configuration>
