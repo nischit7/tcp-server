@@ -11,12 +11,12 @@ Ideally we should have error handler and we should hook you that error handler i
 This allows one to have a singular error handling strategy.
 During this exercise I encountered couple of open defects in Vert.x
 
-##Pre-requisites to build code
+## Pre-requisites to build code
 
 1. JDK 11
 2. Maven 3.6.x
 
-##Basic info of the folder structure
+## Basic info of the folder structure
 
     - bin               # Executables used when building docker image
     - checkstyle        # Checkstly code linting rules
